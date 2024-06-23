@@ -24,6 +24,11 @@ self.addEventListener('fetch', function (e) {
   );
 });
 
+self.addEventListener("touchstart", touchHandler, true);
+self.addEventListener("touchmove", touchHandler, true);
+self.addEventListener("touchend", touchHandler, true);
+self.addEventListener("touchcancel", touchHandler, true);    
+
 function touchHandler(event)
 {
     var clickNum = event.changedTouches.length;
@@ -52,10 +57,3 @@ function touchHandler(event)
     event.preventDefault();
 }
 
-function init() 
-{
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);    
-}
